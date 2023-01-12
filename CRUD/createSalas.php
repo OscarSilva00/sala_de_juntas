@@ -4,10 +4,16 @@ $con = new conexion();
 $conexion1 = $con->conectar();
 
 $id = null;
-$name = $_POST['namee'];
-$textt = $_POST['textt'];
+$nombre = $_POST['NombreSala'];
+$hi = null;
+$hf = null;
+$estado = 'Libre';
+$hr = null;
+$solicita = null;
+$capacidad = $_POST['Capacidad'];
 
-$sql = "INSERT INTO comment(namee, textt) VALUES ('$name', '$textt')";
+
+$sql = "INSERT INTO salas(NombreSala, Capacidad, Estado) VALUES ('$nombre', '$capacidad', '$estado')";
 $respuesta = mysqli_query($conexion1, $sql);
 
 if($respuesta){

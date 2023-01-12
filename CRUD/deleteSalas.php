@@ -1,12 +1,20 @@
 <?php
 
-include "conexion.php";
-$id = $_REQUEST['id'];
+include "../conexion.php";
+$con = new conexion();
+$conexion1 = $con->conectar();
 
-$sql = ("DELETE FROM users WHERE id='" . $id . "' ");
+$id = $_POST['id'];
 
-$respuesta = mysqli_query($conexion, $sql);
+$sql = ("DELETE FROM salas WHERE id= $id");
 
-echo"<script type='text/javascript'>window.location='Salas.php';</script>"
+$respuesta = mysqli_query($conexion1, $sql);
+
+
+if($respuesta){
+    Header("Location: ../Salas.php");
+}else{
+    Header("Location: ../Salas.php");
+}
 
 ?>

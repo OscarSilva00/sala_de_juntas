@@ -2,12 +2,7 @@
     include "conexion.php";
     $con = new conexion();
     $conexion1 = $con->conectar();
-    $sql = "SELECT 
-    id,
-                namee,
-                textt
-            FROM
-                comment";
+    $sql = "SELECT * FROM salas";
     $respuesta = mysqli_query($conexion1, $sql);
 ?>
 
@@ -27,10 +22,11 @@
 
 <table class="table table-sm dt-responsive nowrap" id="tablaUsuariosDataTable" style="width:100%">
 
-    <thead>
-    <th>id</th>
-        <th>namee</th>
-        <th>textt</th>        
+    <thead>    
+        <th>Sala</th>
+        <th>Estado</th>
+        <th>Solicitante<th>
+        <th>Capacidad<th>                
         <th>Opciones<th>
     
     </thead>
@@ -42,10 +38,11 @@
         ?>
 
         <tr>
-
-            <td><?php echo $mostrar['id']; ?></td>
-            <td><?php echo $mostrar['namee']; ?></td>
-            <td><?php echo $mostrar['textt']; ?></td>
+            
+            <td><?php echo $mostrar['NombreSala']; ?></td>
+            <td><?php echo $mostrar['Estado']; ?></td>
+            <td><?php echo $mostrar['Solicita']; ?></td>
+            <td><?php echo $mostrar['Capacidad']; ?></td> 
             
             <td><button class="btn btn-primary" data-toggle="modal" data-target="#modalEditarSala<?php echo $mostrar['id']; ?>"
             <?php echo $mostrar['id']; ?>>
@@ -68,7 +65,6 @@
         }
         ?>
         
-
     </tbody>
 
 </table>

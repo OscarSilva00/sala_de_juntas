@@ -1,19 +1,22 @@
 <?php
-include "conexion.php";
-$id = $_REQUEST['id'];
-$name = $_REQUEST['name'];
-$email = $_REQUEST['email'];
-$password = $_REQUEST['password'];
+include "../conexion.php";
+$con = new conexion();
+$conexion1 = $con->conectar();
+
+$id = $_POST['id'];;
+$nombre = $_POST['NombreSala'];
+$capacidad = $_POST['Capacidad'];
 
 
-$sql = ("UPDATE users SET 
-                name='" . $nombre . "',
-                email='" . $email . "',
-                password='" . $password . "' 
-                WHERE id='" . $id . "' ");
+$sql = ("UPDATE salas SET NombreSala = '$nombre',                
+                Capacidad = $capacidad                
+                WHERE id = $id");
 
-$respuesta = mysqli_query($conexion, $sql);
+$respuesta = mysqli_query($conexion1, $sql);
 
-echo"<script type='text/javascript'>window.location='Salas.php';</script>"
-
+if($respuesta){
+    Header("Location: ../Salas.php");
+}else{
+    Header("Location: ../Salas.php");
+}
     ?>
