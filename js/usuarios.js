@@ -1,5 +1,8 @@
-function mostrar(){
-  $("#modalEliminarSala").modal("show");
-}
 
+function mostrarEditar(){
+    $("#modalEditarSala<?php echo $mostrar['id']; ?>").modal("show");
+  }
 
+  function mostrarEliminar(){
+    $("#modalEliminarSala<?php echo $mostrar['id']; ?>").modal("show");
+  }

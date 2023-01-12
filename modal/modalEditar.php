@@ -14,19 +14,19 @@
                     <div class="mb-3 row">
                         <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">nombre</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nombre" name= "nombre" value="<?php echo $mostrar['name']; ?>" required>
+                        <input type="text" class="form-control" name="name" value="<?php echo $mostrar['name']; ?>" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">correo</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" name= "email" value="<?php echo $mostrar['email']; ?>" required>
+                            <input type="email" class="form-control" name="email" value="<?php echo $mostrar['email']; ?>" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" name= "password" value="<?php echo $mostrar['password']; ?>" required>
+                            <input type="password" class="form-control" name= "password" value="<?php echo $mostrar['password']; ?>" required>
                         </div>
                     </div>
                 </div>

@@ -1,20 +1,19 @@
 <?php
-    include "conexion.php";
+include "../conexion.php";
+$con = new conexion();
+$conexion1 = $con->conectar();
 
-    $con = new conexion();
-    $conexion1 = $con->conectar();
-    $sql = "INSERT INTO users(
-                name,
-                email,
-                password)
-                VALUES (?,?,?,?,?,?,?,?)";
+$id = null;
+$name = $_POST['namee'];
+$textt = $_POST['textt'];
 
-$query = $conexion1->prepare($sql);
-$query->bind_param("ssssss",  $datos['name'],
-                                 $datos['email'],
-                                 $datos['password']);
-$respuesta = $query->execute();
-$query->close();
-$respuesta = mysqli_query($conexion1, $sql) or die(mysqli_error($conexion1));
+$sql = "INSERT INTO comment(namee, textt) VALUES ('$name', '$textt')";
+$respuesta = mysqli_query($conexion1, $sql);
+
+if($respuesta){
+    Header("Location: ../Salas.php");
+}else{
+    Header("Location: ../Salas.php");
+}
 
 ?>

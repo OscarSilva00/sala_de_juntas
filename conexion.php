@@ -8,7 +8,7 @@
             $usuario = "root";
             $password = "";
             $port = 3307;
-            $db = "topicos";
+            $db = "comment";
             $conexion = mysqli_connect($servidor,$usuario,$password,$db,$port);
             
 
