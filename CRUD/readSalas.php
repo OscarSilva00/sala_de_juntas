@@ -14,19 +14,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/usuarios.js"></script>
 </head>
 
+<div class="table-responsive-sm">
+<table class="table table-striped table-sm" style="margin: auto; width: fit-content;">
 
-<table class="table table-sm dt-responsive nowrap" id="tablaUsuariosDataTable" style="width:100%">
-
-    <thead>    
-        <th>Sala</th>
-        <th>Capacidad<th>                        
-        <th>Opciones<th>
-    
+    <thead class="thead-dark" style="text-align: center;">    
+        <th scope="col">Sala</th>
+        <th scope="col">Capacidad</th>                        
+        <th scope="col">Opciones</th>
+            
     </thead>
 
     <tbody>
@@ -37,25 +40,25 @@
 
         <tr>
             
-            <td><?php echo $mostrar['NombreSala']; ?></td>
-            <td><?php echo $mostrar['Capacidad']; ?></td>         
+            <th scope="row"><?php echo $mostrar['NombreSala']; ?></th>
+            <td><?php echo $mostrar['Capacidad']; ?></td>                     
             
-            
-            <td>
-              <div class="mb-3 row">
+            <td>              
               <button class="btn btn-primary" data-toggle="modal" data-target="#modalEditarSala<?php echo $mostrar['id']; ?>"
             <?php echo $mostrar['id']; ?>>
           Editar
         </button>
+        
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalEliminarSala<?php echo $mostrar['id']; ?>"
         <?php echo $mostrar['id']; ?> > 
           Borrar
         </button>
+        
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalReservarSala<?php echo $mostrar['id']; ?>"
         <?php echo $mostrar['id']; ?> > 
           Reservar
         </button>        
-        </div>
+        
       </td>
         
         </tr>
@@ -77,4 +80,5 @@
     </tbody>
 
 </table>
+      </div>
 </html>

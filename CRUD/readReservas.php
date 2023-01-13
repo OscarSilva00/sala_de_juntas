@@ -13,24 +13,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <script src="js/usuarios.js"></script>
 </head>
 
 
-<table class="table table-sm dt-responsive nowrap" id="tablaUsuariosDataTable" style="width:100%">
+<div class="table-responsive-sm">
+<table class="table table-striped table-sm" style="margin: auto; width: fit-content;">
 
-    <thead>    
-        <th>Reserva</th>
-        <th>Sala<th>                        
-        <th>Solicitante<th>
-        <th>Hora Inicio</th>
-        <th>Hora Final<th>                        
-        <th>Hora Reserva<th>
-        <th>Estado<th>
-        <th>Opciones<th>
+    <thead class="thead-dark" style="text-align: center;">    
+        <th scope="col">Reserva</th>
+        <th scope="col">Sala</th>                        
+        <th scope="col">Solicitante</th>
+        <th scope="col">Hora Inicio</th>
+        <th scope="col">Hora Final</th>                        
+        <th scope="col">Hora Reserva</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Opciones</th>
 
     
     </thead>
