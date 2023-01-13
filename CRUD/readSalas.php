@@ -24,9 +24,7 @@
 
     <thead>    
         <th>Sala</th>
-        <th>Estado</th>
-        <th>Solicitante<th>
-        <th>Capacidad<th>                
+        <th>Capacidad<th>                        
         <th>Opciones<th>
     
     </thead>
@@ -40,18 +38,25 @@
         <tr>
             
             <td><?php echo $mostrar['NombreSala']; ?></td>
-            <td><?php echo $mostrar['Estado']; ?></td>
-            <td><?php echo $mostrar['Solicita']; ?></td>
-            <td><?php echo $mostrar['Capacidad']; ?></td> 
+            <td><?php echo $mostrar['Capacidad']; ?></td>         
             
-            <td><button class="btn btn-primary" data-toggle="modal" data-target="#modalEditarSala<?php echo $mostrar['id']; ?>"
+            
+            <td>
+              <div class="mb-3 row">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modalEditarSala<?php echo $mostrar['id']; ?>"
             <?php echo $mostrar['id']; ?>>
           Editar
         </button>
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalEliminarSala<?php echo $mostrar['id']; ?>"
         <?php echo $mostrar['id']; ?> > 
           Borrar
-        </button></td>
+        </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalReservarSala<?php echo $mostrar['id']; ?>"
+        <?php echo $mostrar['id']; ?> > 
+          Reservar
+        </button>        
+        </div>
+      </td>
         
         </tr>
         <?php
@@ -60,6 +65,10 @@
         <?php
         include "modal/modalEliminar.php";
         ?>
+        <?php
+        include "modal/modalReservar.php";
+        ?>
+        
     
         <?php
         }

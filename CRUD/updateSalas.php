@@ -3,7 +3,7 @@ include "../conexion.php";
 $con = new conexion();
 $conexion1 = $con->conectar();
 
-$id = $_POST['id'];;
+$id = $_POST['id'];
 $nombre = $_POST['NombreSala'];
 $capacidad = $_POST['Capacidad'];
 
