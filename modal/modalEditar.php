@@ -1,7 +1,7 @@
 <!-- Modal -->
 <form action="CRUD/updateSalas.php" method="POST">
 <div class="modal fade" id="modalEditarSala<?php echo $mostrar['id']; ?>" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-toggle="modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-footer">                                  
                 <button type="submit" class="btn btn-primary">Editar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             
         </div>

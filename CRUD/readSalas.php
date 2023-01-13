@@ -2,9 +2,22 @@
     include "conexion.php";
     $con = new conexion();
     $conexion1 = $con->conectar();
-    $sql = "SELECT * FROM salas";
+    
+    $record_per_page = 5;
+    $page = '';
+    if(isset($_GET["page"]))
+    {
+     $page = $_GET["page"];
+    }
+    else
+    {
+     $page = 1;
+    }
+    
+    $start_from = ($page-1)*$record_per_page;    
+    $sql = "SELECT * FROM salas ORDER BY id DESC LIMIT $start_from, $record_per_page" ;
     $respuesta = mysqli_query($conexion1, $sql);
-?>
+    ?>
 
 
 <!DOCTYPE html>
@@ -78,7 +91,25 @@
         ?>
         
     </tbody>
-
+    <div>
+    
+</div>
 </table>
+<div style="text-align: center;">
+<?php
+    $page_query = "SELECT * FROM salas ORDER BY id DESC";
+    $page_result = mysqli_query($conexion1, $page_query);
+    $total_records = mysqli_num_rows($page_result);
+    $total_pages = ceil($total_records/$record_per_page);    
+
+    for($i=1; $i<=$total_pages; $i++)
+    {    
+     echo "<a href='Salas.php?page=".$i."'> <button >".$i."</button> </a>";
+     
+    }
+    
+    
+    ?>
+</div>
       </div>
 </html>

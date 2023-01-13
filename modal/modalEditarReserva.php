@@ -1,8 +1,7 @@
 <form action="CRUD/updateReservas.php" method="POST">
 
     <div class="modal fade" id="modalEditarReserva<?php echo $mostrar['idR']; ?>" tabindex="-1"
-
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-toggle="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -29,7 +28,9 @@
                         </div>
                     </div>                    
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Reservar</button>
+                    <button type="submit" class="btn btn-primary">Reservar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        
                     </div>
                 </div>
             </div>

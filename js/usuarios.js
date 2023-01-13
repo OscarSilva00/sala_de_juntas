@@ -6,3 +6,5 @@ function mostrarEditar(){
   function mostrarEliminar(){
     $("#modalEliminarSala<?php echo $mostrar['id']; ?>").modal("show");
   }
+
+ 

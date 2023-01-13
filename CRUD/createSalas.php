@@ -7,6 +7,7 @@ $id = null;
 $nombre = $_POST['NombreSala'];
 $capacidad = $_POST['Capacidad'];
 
+                
 
 $sql = "INSERT INTO salas(NombreSala, Capacidad) VALUES ('$nombre', '$capacidad')";
 $respuesta = mysqli_query($conexion1, $sql);
