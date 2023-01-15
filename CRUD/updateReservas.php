@@ -7,17 +7,21 @@ date_default_timezone_set("America/Mexico_City");
 $horaActual = date("H:i");
 
 $idR = $_POST['idR'];
-$Estado = 'Reservado';
+$Fecha = $_POST['Fecha'];
 $HoraReserva = $horaActual;
 $Solicita = $_POST['Solicita'];
 $HoraInicio = $_POST['HoraInicio'];
-$HoraFinal = $_POST['HoraFinal'];
+//variable obtener minutos
+$horaMax = $_POST['horaMax'];
+$sumaHora = strtotime ( '+'.$horaMax.' minute' , strtotime ( $HoraInicio ) ) ;
+$sumaHora = date ( 'H:i', $sumaHora );
+$HoraFinal = $sumaHora;
 
 $sql = ("UPDATE reservas SET
 Solicita='$Solicita', 
 HoraInicio='$HoraInicio',
 HoraFinal='$HoraFinal',
-Estado='$Estado'
+Fecha='$Fecha'
 WHERE idR = $idR");
 
 

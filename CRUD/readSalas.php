@@ -27,13 +27,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">        
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    
-    
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/usuarios.js"></script>
 </head>
+
 
 <div class="table-responsive-sm">
 <table class="table table-striped table-sm" style="margin: auto; width: fit-content;">
@@ -96,20 +95,7 @@
 </div>
 </table>
 <div style="text-align: center;">
-<?php
-    $page_query = "SELECT * FROM salas ORDER BY id DESC";
-    $page_result = mysqli_query($conexion1, $page_query);
-    $total_records = mysqli_num_rows($page_result);
-    $total_pages = ceil($total_records/$record_per_page);    
 
-    for($i=1; $i<=$total_pages; $i++)
-    {    
-     echo "<a href='Salas.php?page=".$i."'> <button >".$i."</button> </a>";
-     
-    }
-    
-    
-    ?>
 </div>
       </div>
 </html>

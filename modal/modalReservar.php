@@ -1,7 +1,4 @@
-
 <!-- Modal -->
-
-
 
 <form action="CRUD/reservarSalas.php" method="POST">
     <div class="modal fade" id="modalReservarSala<?php echo $mostrar['id']; ?>" tabindex="-1"
@@ -20,17 +17,23 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="exampleFormControlTextarea1" class="col-sm-5 col-form-label">Día a reservar</label>
+                        <div class="col-sm-5">
+                            <input type="date" class="form-control" name="Fecha" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="exampleFormControlTextarea1" class="col-sm-5 col-form-label">Horario de Inicio</label>
                         <div class="col-sm-5">
                             <input type="time" class="form-control" name="HoraInicio" required>  
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="exampleFormControlTextarea1" class="col-sm-5 col-form-label">Horario de conclusion</label>
+                        <label for="exampleFormControlTextarea1" class="col-sm-5 col-form-label">Ingresa tiempo a reservar en minutos</label>
                         <div class="col-sm-5">
-                            <input type="time" class="form-control" name="HoraFinal" required>
+                            <input type="number" class="form-control" name="horaMax" max="120" required>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="modal-footer">                    
                         <button type="submit" class="btn btn-primary">Reservar</button>                        
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

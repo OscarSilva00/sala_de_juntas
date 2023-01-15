@@ -3,18 +3,24 @@ include "../conexion.php";
 $con = new conexion();
 $conexion1 = $con->conectar();
 
+//obtener hora actual
 date_default_timezone_set("America/Mexico_City");
 $horaActual = date("H:i");
 
+
 $id = $_POST['id'];
-$Estado = 'Reservado';
+$Fecha = $_POST['Fecha'];
 $HoraReserva = $horaActual;
 $Solicita = $_POST['Solicita'];
 $HoraInicio = $_POST['HoraInicio'];
-$HoraFinal = $_POST['HoraFinal'];
+//variable obtener minutos
+$horaMax = $_POST['horaMax'];
+$sumaHora = strtotime ( '+'.$horaMax.' minute' , strtotime ( $HoraInicio ) ) ;
+$sumaHora = date ( 'H:i', $sumaHora );
+$HoraFinal = $sumaHora;
 
-$sql = "INSERT INTO reservas(idSala, Solicita, HoraInicio,HoraFinal, HoraReserva,Estado) 
-VALUES ($id,'$Solicita', '$HoraInicio', '$HoraFinal','$HoraReserva','$Estado')";
+$sql = "INSERT INTO reservas(idSala, Solicita, HoraInicio,HoraFinal, HoraReserva,Fecha) 
+VALUES ($id,'$Solicita', '$HoraInicio', '$HoraFinal','$HoraReserva','$Fecha')";
 $respuesta = mysqli_query($conexion1, $sql);
 
 if($respuesta){
@@ -22,4 +28,9 @@ if($respuesta){
 }else{
     Header("Location: ../header.php");
 }
+
+
+
+
+
     ?>

@@ -4,7 +4,6 @@
         <label for="exampleFormControlInput1" class="col-sm-5 col-form-label">NombreSala</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" name="NombreSala" placeholder="hola" required>
-            
         </div>
     </div>
     <div class="mb-3 row">
