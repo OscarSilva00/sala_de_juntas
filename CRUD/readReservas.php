@@ -22,13 +22,34 @@
     else
     {
      $page = 1;
+    }    
+    $start_from = ($page-1)*$record_per_page;
+
+    //buscador
+    $x = 3;
+    if (isset($_POST['buscar'])){        
+        $x = 1;        
+    $buscar = $_POST['buscar'];
+    $sql = "SELECT * FROM reservas,salas WHERE idSala LIKE '$buscar'
+    OR idR LIKE '$buscar'
+    OR NombreSala LIKE '%".$buscar."%'
+    OR Solicita LIKE '%".$buscar."%'
+    OR HoraInicio LIKE '%".$buscar."%' 
+    OR HoraFinal LIKE '%".$buscar."%' 
+    OR HoraReserva LIKE '%".$buscar."%'
+    ORDER BY idR DESC LIMIT $start_from, $record_per_page";
+    $respuesta = mysqli_query($conexion1, $sql);
+    if (!$respuesta){
+        $x = 0;
+        $sql = "SELECT * FROM reservas,salas WHERE id=idSala ORDER BY idR DESC LIMIT $start_from, $record_per_page";
+        $respuesta = mysqli_query($conexion1, $sql);
+    }
+    }else{
+        $x = 0;
+        $sql = "SELECT * FROM reservas,salas WHERE id=idSala ORDER BY idR  DESC LIMIT $start_from, $record_per_page";
+        $respuesta = mysqli_query($conexion1, $sql);
     }
     
-    $start_from = ($page-1)*$record_per_page;        
-    $sql = "SELECT * FROM reservas ORDER BY idR DESC LIMIT $start_from, $record_per_page";
-    $respuesta = mysqli_query($conexion1, $sql);
-
-
     
 
 ?>
@@ -52,11 +73,22 @@
 
 <div class="container-fluid">
 <div class="table-responsive-sm">
+
+
+<div style="text-align: center;">
+<form action="" method="POST">
+    <input type="text" name= "buscar">
+    <input type="submit" name= "enviar" value="buscar">
+</form>
+</div>
+</br>
+
 <table class="table table-striped table-sm" style="margin: auto; width: fit-content;">
 
     <thead class="thead-dark" style="text-align: center;">    
         <th scope="col">Reserva</th>
         <th scope="col">Sala</th>                        
+        <th scope="col">Nombre Sala</th>              
         <th scope="col">Solicitante</th>
         <th scope="col">Hora Inicio</th>
         <th scope="col">Hora Final</th>                                
@@ -74,7 +106,8 @@
 
         <tr>           
             <td><?php echo $mostrar['idR']; ?></td>
-            <td><?php echo $mostrar['idSala']; ?></td>         
+            <td><?php echo $mostrar['idSala']; ?></td>
+            <td><?php echo $mostrar['NombreSala']; ?></td>
             <td><?php echo $mostrar['Solicita']; ?></td>         
             <td><?php echo $mostrar['HoraInicio']; ?></td>         
             <td><?php echo $mostrar['HoraFinal']; ?></td>                          
@@ -115,17 +148,22 @@
 <div style="text-align: center;">
 
 <?php
+
 //paginacion
+    
+    if ($x ==1){
+        
+    }else{
+
     $page_query = "SELECT * FROM reservas ORDER BY idR";
     $page_result = mysqli_query($conexion1, $page_query);
     $total_records = mysqli_num_rows($page_result);
     $total_pages = ceil($total_records/$record_per_page);    
     for($i=1; $i<=$total_pages; $i++)
-    {    
+    {          
      echo "<a href='reservas.php?page=".$i."'> <button >".$i."</button> </a>";
-     
     }
-    
+}
     
     ?>
 </div>

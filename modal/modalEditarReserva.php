@@ -5,13 +5,12 @@ $diferencia = ($HoraF - $horaI) / 60;
 ?>
 
 <form action="CRUD/updateReservas.php" method="POST">
-
     <div class="modal fade" id="modalEditarReserva<?php echo $mostrar['idR']; ?>" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true" data-toggle="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Reserva de <?php echo $mostrar['Solicita']; ?>"</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Reserva de <?php echo $mostrar['Solicita']; ?>"</h1>                    
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="idR" value="<?php echo $mostrar['idR']; ?>">
@@ -42,6 +41,7 @@ $diferencia = ($HoraF - $horaI) / 60;
                             reservar en minutos</label>
                         <div class="col-sm-5">
                             <input type="number" class="form-control" name="horaMax" value="<?php echo $diferencia ?>" max="120" required>
+                            <input type="hidden" name="idSala" value="<?php echo $mostrar['idSala']; ?>" >
                         </div>
                     </div>
                     <div class="modal-footer">
